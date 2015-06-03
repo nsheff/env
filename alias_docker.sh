@@ -1,0 +1,2 @@
+
+alias dr="docker run"
