@@ -20,4 +20,9 @@ cf ()
 find . -maxdepth 1 -mindepth 1 -type d | while read dir; do   printf "%-25.25s : " "$dir";   find "$dir" -type f | wc -l; done
 }
 
+# Tar up a folder. Creates an archive of a folder
+tu ()
+{ 
+tar -cvzpf $1.tgz $1
+}
 PYTHONPATH=$PYTHONPATH:~/mypython
