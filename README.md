@@ -1,7 +1,7 @@
 # env
 Linux environment files
 
-This respository just contains a few files to set up a linux command line environment the way I like it. 
+This respository just contains a few files to set up a linux command line environment the way I like it.
 
 This includes:
 
@@ -25,6 +25,6 @@ Now, set up a few required environment variables by pasting the variables from `
 	ln -s -i ~/repo/env/dotfiles/.Rprofile ~/.Rprofile
 
 
+# linking tomboy notes
 
-
-
+	ln -s -i ~/Dropbox/.tomboy ~/.local/share/tomboy
