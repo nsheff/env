@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=OpenDropbox
+Exec=nemo Dropbox
+Type=Application
+Description=Custom Launcher
+Icon=/home/nsheffield/Dropbox/Logos/dropbox-icon.png

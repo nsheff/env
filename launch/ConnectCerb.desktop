@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Name=ConnectCerb
+Exec=repo/env/bin/ConnectCerb.sh
+Type=Application
+Description=Custom Launcher
+Icon=/home/nsheffield/Dropbox/Logos/dukeD.png
+

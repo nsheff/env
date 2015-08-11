@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=ConnectCemm
+Exec=repo/env/bin/connectCemm.sh
+Type=Application
+Description=Custom Launcher
+Icon=/home/nsheffield/Dropbox/Logos/cemmC.png
+

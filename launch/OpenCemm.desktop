@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=OpenCemm
+Exec=nemo cemm
+Icon=/home/nsheffield/Dropbox/Logos/folder_cemm.svg
+Terminal=false
+Type=Application

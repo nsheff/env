@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=IGV
+Exec=repo/env/bin/igv.sh
+Icon=/home/nsheffield/Dropbox/Logos/IGVlogo.png
+Terminal=false
+Type=Application

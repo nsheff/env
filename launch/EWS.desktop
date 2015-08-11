@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=EWS
+Exec=nemo cemm/fhgfs/work/ewing
+Icon=/home/nsheffield/Dropbox/Logos/folder_ews.svg
+Terminal=false
+Type=Application

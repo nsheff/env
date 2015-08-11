@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=TunnelCerb
+Exec=repo/env/bin/tunnelCerb.sh
+Type=Application
+Description=Custom Launcher
+Icon=/home/nsheffield/Dropbox/Logos/dukeD.png

@@ -15,6 +15,11 @@ This includes:
 Just clone the repo and add a line like this into your .bashrc:
 
 ```
-source path/to/repo/bashsetup.sh
+source path/to/repo/env/bashsetup.sh
 ```
+
+Now, set up a few required environment variables by pasting the variables from `bash_vars_template.sh` into your local `.bashrc`, adjusting the variables as appropriate for this system.
+
+linking .Rprofile:
+
 
