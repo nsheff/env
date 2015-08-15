@@ -1,9 +1,7 @@
 #for home computer
 
 #install good packages
-
-sudo apt-get update && apt-get install -y \
- gnucash
+sudo apt-get install gnucash
 
 #for playing movies
 sudo apt-get install ubuntu-restricted-extras

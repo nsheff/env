@@ -14,6 +14,7 @@ repos=($repo_folder ${repo_individual[@]} $rpack_folder)
 # Loop through all repos and add bin folder to path, if it exists:
 for f in "${repos[@]}"
 do
+echo $f
 f=$(eval echo "$f") #expand
 if [ -d "${f}bin" ]; then
 export PATH=$PATH:${f}bin

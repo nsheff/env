@@ -8,12 +8,9 @@ if [ ! -d "/data" ]; then
 	sudo mkdir /data
 	sudo chown `whoami` /data
 fi
-
-# Mount remote filesystems
 sshfs n002:/fhgfs /fhgfs
 sshfs n002:/data /data
 
-# Set up convenience softlinks
 ln -si /data/home/nsheffield ~/cemm
 
 #sshfs n002:/home/nsheffield cemm #don't do this!

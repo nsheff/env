@@ -1,8 +1,7 @@
 
 
-sudo apt-get update && apt-get install -y \
-texlive-latex-base \
-ttf-mscorefonts-installer \
+texlive-latex-base
+ttf-mscorefonts-installer
 
 
 # work tools
