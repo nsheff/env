@@ -1,6 +1,7 @@
 # Choose bioconductor mirror:
 oldTimeout = options(timeout = 3) # lower timout
 tryCatch( {
+	stop()
 	source("http://bioconductor.statistik.tu-dortmund.de/biocLite.R")
 }, error = function(e) { 
 	message("Unable to connect to local bioconductor mirror, using default." )
