@@ -55,7 +55,9 @@ ln -s ~/Dropbox/.tomboy .local/share/tomboy
 rm -rf .workrave
 ln -s ~/Dropbox/.workrave ~/.workrave
 
-
+# Create startup applications by moving launchers to autostart area.
+cp launch/StartWorkrave.desktop ~/.config/autostart
+cp launch/StartDropbox.desktop ~/.config/autostart
 
 # Firefox extensions:
 
@@ -90,3 +92,9 @@ var=${var%<*}
 
 mkdir ${firefoxExtDir}/$var
 mv *  ${firefoxExtDir}/$var
+
+
+# Display
+# I had trouble getting dual monitors working in Linux Mint; it worked much better when I switched
+# from proprietary nvidia drivers to Xorg drivers, then the normal Display menu worked (and you can put
+# the menu bar on the other monitor by right-clicking and pressing "move")
