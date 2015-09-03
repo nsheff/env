@@ -1,6 +1,5 @@
-# Set up bash environment variables.
-# This is a template, to be adjusted individually on each system, and added to
-# .bashrc
+# Nathan's bash environment variables -----------------------------------------
+# Adjust to local system and add to .bashrc
 # These are all pointers to folders that should *include trailing slashes*
 
 # Pointer to the 'raw data' filesystem
@@ -17,4 +16,4 @@ export CODE_BASE="~/repo/"
 
 # Legacy variable: just points to RGenomeUtils repo
 export SHARE_DIR="~/rpack/RGenomeUtils/"
-
+# -----------------------------------------------------------------------------
