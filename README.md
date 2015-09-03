@@ -57,3 +57,8 @@ Link atom theme:
 Link workrave stats:
 
 	ln -s -i ~/Dropbox/.workrave ~/.workrave
+
+Add launchers to menu so they can be dragged to quicklaunch panel:
+
+	cd ~/repo/env/launch
+	./linkLaunchers.sh
