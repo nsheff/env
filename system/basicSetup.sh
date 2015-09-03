@@ -51,6 +51,11 @@ sudo apt-get remove unity-scope-musicstores
 rm -rf .local/share/tomboy/
 ln -s ~/Dropbox/.tomboy .local/share/tomboy
 
+# move workrave to dropbox:
+rm -rf .workrave
+ln -s ~/Dropbox/.workrave ~/.workrave
+
+
 
 # Firefox extensions:
 
