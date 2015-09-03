@@ -27,6 +27,7 @@ Start for a new system
 
 ## Cloning the repo and setting up
 Start from here if you already have git set up how you want it
+
 	# TO clone this repository:
 	mkdir -p repo
 	cd repo
@@ -42,13 +43,17 @@ Start from here if you already have git set up how you want it
 
 ## Establish some links
 Link .Rprofile:
+
 	ln -s -i ~/repo/env/dotfiles/.Rprofile ~/.Rprofile
 
 Link tomboy notes:
+
 	ln -s -i ~/Dropbox/.tomboy ~/.local/share/tomboy
 
 Link atom theme:
+
 	ln -s -i ~/repo/env/ns-atom-syntax/ ~/.atom/packages/ns-syntax
 
 Link workrave stats:
+
 	ln -s -i ~/Dropbox/.workrave ~/.workrave
