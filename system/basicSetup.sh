@@ -1,17 +1,19 @@
+# Add atom PPA: 
+sudo add-apt-repository ppa:webupd8team/atom
 
-sudo apt-get update && apt-get install -y \
-git \
-sshfs \
-nautilus-open-terminal \
-gedit-latex-plugin \
-gedit-plugins \
-tomboy \
-inkscape \
-atom \
-byobu \
-audacious \
-vim \ 
-chromium-browser \
+sudo apt-get update && sudo apt-get install \
+  git \
+  sshfs \
+  nautilus-open-terminal \
+  gedit-latex-plugin \
+  gedit-plugins \
+  tomboy \
+  inkscape \
+  atom \
+  byobu \
+  audacious \
+  vim \
+  chromium-browser \
 
 
 
