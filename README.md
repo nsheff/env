@@ -10,18 +10,35 @@ This includes:
 * PATH variable setup
 
 
-# Installing
+# Installing environment settings
 
-Just clone the repo, and then install the individual components like this:
+## New system installs (getting the prerequisites)
+Start for a new system
 
-### Bash setup
+	# First things first: make sure we have git
+	sudo apt-get update
+	sudo apt-get install -y git
+	
+	# Setting up github account global config options
+	git config --global user.email "sheffien@users.noreply.github.com"
+	git config --global user.name "sheffien"
+	
+	# Set up auth keys if you like
 
-Add a line like this into your .bashrc:
+## Cloning the repo and setting up
+Start from here if you already have git set up how you want it
+	# TO clone this repository:
+	mkdir -p repo
+	cd repo
+	git clone git@github.com:sheffien/env.git
 
-	source path/to/repo/env/bashsetup.sh
-
-
-Now, set up a few required environment variables by pasting the variables from `bash_vars_template.sh` into your local `.bashrc`, adjusting the variables as appropriate for this system.
+	# Add a line like this into your .bashrc:
+	# source path/to/repo/env/bashsetup.sh
+	echo 'source ~/repo/env/bashsetup.sh' >> .bashrc
+	
+	# Set up a few required environment variables by pasting template `bash_vars_template.sh` into your `.bashrc`
+	# Then adjust the variables as appropriate for this system.
+	cat ~/repo/env/bash_vars_template.sh >> .bashrc
 
 ### Link .Rprofile:
 	ln -s -i ~/repo/env/dotfiles/.Rprofile ~/.Rprofile
@@ -30,4 +47,6 @@ Now, set up a few required environment variables by pasting the variables from `
 	ln -s -i ~/Dropbox/.tomboy ~/.local/share/tomboy
 
 ### Link atom theme:
-	ln -s ~/repo/env/ns-atom-syntax/ ~/.atom/packages/ns-syntax
+	ln -s -i ~/repo/env/ns-atom-syntax/ ~/.atom/packages/ns-syntax
+
+	ln -s -i ~/Dropbox/.workrave ~/.workrave
