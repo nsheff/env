@@ -49,6 +49,7 @@ Link .Rprofile:
 Link tomboy notes:
 
 	ln -s -i ~/Dropbox/.tomboy ~/.local/share/tomboy
+	ln -s -i ~/Dropbox/sshconfig .ssh/config
 
 Link atom theme:
 
