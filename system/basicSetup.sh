@@ -1,65 +1,50 @@
-# TO clone this repository: 
-git clone https://github.com/sheffien/env.git
-
 # Add atom PPA: 
 sudo add-apt-repository ppa:webupd8team/atom
 
-sudo apt-get update
+# It's fun to include these all in 1 command using slashes to put the packages on different lines,
+# but the advantage of individual commands is that if one package fails, the others will still be installed.
+# It also makes subsetting easier
 
-sudo apt-get install \
-  git \
-  sshfs \
-  nautilus-open-terminal \
-  tomboy \
-  atom \
-  byobu \
-  vim \
-  chromium-browser \
+sudo apt-get install -y sshfs
+sudo apt-get install -y nautilus-open-terminal
+sudo apt-get install -y tomboy
+sudo apt-get install -y atom
+sudo apt-get install -y byobu
+sudo apt-get install -y vim
+sudo apt-get install -y chromium-browser
 
+sudo apt-get install -y workrave
 sudo apt-get install -y audacious 
 sudo apt-get install -y gedit 
 sudo apt-get install -y gedit-latex-plugin 
 sudo apt-get install -y gedit-plugins 
 sudo apt-get install -y inkscape 
  
-
-
-
 # Dropbox
-#in nemo, it's better to just install from the website; I've never had any luck installing from repos. But the web download and install work perfectly for me multiple times.
-#https://www.dropbox.com/install
-
-#Dropbox
-#https://www.dropbox.com/install?os=lnx
-#you then ALSO have to install the ubuntu package, so it knows it has it, then nemo-dropbox.
+# It's best to install from the website; I've never had any luck installing from repos.
+# https://www.dropbox.com/install
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-# To create 
+
+# To create a user:
 ~/.dropbox-dist/dropboxd
+
+# you then ALSO have to install the ubuntu package, so it knows it has it, then nemo-dropbox.
 sudo apt-get install nemo-dropbox
 
-#remove dumb packages
+# Remove dumb packages
 sudo apt-get remove rhythmbox
 sudo apt-get remove unity-lens-shopping
 sudo apt-get remove unity-scope-musicstores
 
 
-
-#install from website:
-#skype
-
-#move tomboy to dropbox folder
-rm -rf .local/share/tomboy/
-ln -s ~/Dropbox/.tomboy .local/share/tomboy
-
-# move workrave to dropbox:
-rm -rf .workrave
-ln -s ~/Dropbox/.workrave ~/.workrave
+# Install from website:
+# Skype
 
 # Create startup applications by moving launchers to autostart area.
 cp launch/StartWorkrave.desktop ~/.config/autostart
 cp launch/StartDropbox.desktop ~/.config/autostart
 
-# Firefox extensions:
+# Firefox extensions: (This section needs to be cleaned up and polished)
 
 # Xmarks can't be installed automatically
 # FOr this we have to do it this way:
@@ -98,3 +83,5 @@ mv *  ${firefoxExtDir}/$var
 # I had trouble getting dual monitors working in Linux Mint; it worked much better when I switched
 # from proprietary nvidia drivers to Xorg drivers, then the normal Display menu worked (and you can put
 # the menu bar on the other monitor by right-clicking and pressing "move")
+
+
