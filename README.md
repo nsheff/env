@@ -36,17 +36,19 @@ Start from here if you already have git set up how you want it
 	# source path/to/repo/env/bashsetup.sh
 	echo 'source ~/repo/env/bashsetup.sh' >> .bashrc
 	
-	# Set up a few required environment variables by pasting template `bash_vars_template.sh` into your `.bashrc`
+	# Set up environment variables by pasting template `bash_vars_template.sh` into your `.bashrc`
 	# Then adjust the variables as appropriate for this system.
 	cat ~/repo/env/bash_vars_template.sh >> .bashrc
 
-### Link .Rprofile:
+## Establish some links
+Link .Rprofile:
 	ln -s -i ~/repo/env/dotfiles/.Rprofile ~/.Rprofile
 
-### Link tomboy notes:
+Link tomboy notes:
 	ln -s -i ~/Dropbox/.tomboy ~/.local/share/tomboy
 
-### Link atom theme:
+Link atom theme:
 	ln -s -i ~/repo/env/ns-atom-syntax/ ~/.atom/packages/ns-syntax
 
+Link workrave stats:
 	ln -s -i ~/Dropbox/.workrave ~/.workrave
