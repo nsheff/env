@@ -48,8 +48,8 @@ Link .Rprofile:
 
 Link tomboy notes:
 
-	ln -s -i ~/Dropbox/.tomboy ~/.local/share/tomboy
-	ln -s -i ~/Dropbox/sshconfig .ssh/config
+	ln -s -i ~/Dropbox/env/.tomboy ~/.local/share/tomboy
+	ln -s -i ~/Dropbox/env/sshconfig .ssh/config
 
 Link atom theme:
 
@@ -57,7 +57,11 @@ Link atom theme:
 
 Link workrave stats:
 
-	ln -s -i ~/Dropbox/.workrave ~/.workrave
+	ln -s -i ~/Dropbox/env/historystats ~/.workrave/historystats
+
+Link gedit preferences
+
+	ln -s -i ~/Dropbox/env/.rgedit-preferences ~/.rgedit-preferences
 
 Add launchers to menu so they can be dragged to quicklaunch panel:
 
@@ -67,7 +71,7 @@ Add launchers to menu so they can be dragged to quicklaunch panel:
 ## Some manual installs:
 * [Docker](https://docs.docker.com/installation/ubuntulinux/#installation)
 * [SKype]()
-* 
+* [Virtualbox]() ?
 
 ## Clone my repos
 	cd repo
