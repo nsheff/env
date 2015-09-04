@@ -18,7 +18,8 @@ sudo apt-get install -y audacious
 sudo apt-get install -y gedit 
 sudo apt-get install -y gedit-latex-plugin 
 sudo apt-get install -y gedit-plugins 
-sudo apt-get install -y inkscape 
+sudo apt-get install -y inkscape
+sudo apt-get install -y jabref
  
 # Dropbox
 # It's best to install from the website; I've never had any luck installing from repos.
