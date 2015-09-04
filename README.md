@@ -63,3 +63,7 @@ Add launchers to menu so they can be dragged to quicklaunch panel:
 
 	cd ~/repo/env/launch
 	./linkLaunchers.sh
+
+## Some manual installs:
+[Docker](https://docs.docker.com/installation/ubuntulinux/#installation)
+
