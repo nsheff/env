@@ -20,6 +20,12 @@ sudo apt-get install -y gedit-latex-plugin
 sudo apt-get install -y gedit-plugins 
 sudo apt-get install -y inkscape
 sudo apt-get install -y jabref
+
+# Docker
+# From: https://docs.docker.com/installation/ubuntulinux/#installation
+sudo apt-get install -y docker
+sudo usermod -aG docker ubuntu
+
  
 # Dropbox
 # It's best to install from the website; I've never had any luck installing from repos.
