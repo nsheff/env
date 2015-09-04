@@ -1,4 +1,6 @@
 
+sudo apt-get install virtualbox
+
 # Rgedit:
 # http://heanet.dl.sourceforge.net/project/rgedit/rgedit-0.8.0.2-Gtk3-Python3.tar.bz2
 # I had to update gedit to 3+, then this:
