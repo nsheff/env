@@ -20,11 +20,11 @@ sudo apt-get install -y gedit-latex-plugin
 sudo apt-get install -y gedit-plugins 
 sudo apt-get install -y inkscape
 sudo apt-get install -y jabref
+sudo apt-get install -y curl
 
 # Docker
 # From: https://docs.docker.com/installation/ubuntulinux/#installation
-sudo apt-get install -y docker
-sudo usermod -aG docker ubuntu
+# sudo usermod -aG docker ubuntu
 
  
 # Dropbox
