@@ -13,3 +13,8 @@ alias gpom="git push origin master"
 alias gpo="git push origin"
 alias glop="git log --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%an|%Cgreen%d %Creset%s' --date=short | column -ts'|' | less -r"
 
+
+gclo() 
+{
+	git clone git@github.com:$1
+}
