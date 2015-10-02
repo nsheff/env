@@ -3,7 +3,7 @@
 
 # Here, specify any folders which contain a bunch of subfolders that are repos:
 repo_folder=`ls -d ~/repo/*/`
-rpack_folder=`ls -d ~/rpack/*/ 2>/dev/null`
+rpack_folder=`ls -d ~/code/*/ 2>/dev/null`
 
 # Specify any other additional individual repos to track:
 
