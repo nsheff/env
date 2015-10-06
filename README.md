@@ -44,7 +44,7 @@ Start from here if you already have git set up how you want it
 ## Establish some links
 Link .Rprofile:
 
-	ln -s -i ~/repo/env/dotfiles/.Rprofile ~/.Rprofile
+	ln -s -i ${CODEBASE}env/dotfiles/.Rprofile ~/.Rprofile
 
 Link tomboy notes:
 
