@@ -15,4 +15,4 @@ export WEB="/data/groups/lab_bock/public_html/nsheffield/"
 export RESOURCES="/data/groups/lab_bock/shared/resources/"
 
 # Pointer to the collection of git repos
-export CODEBASE="~/repo/"
+export CODEBASE="$HOME/repo/"
