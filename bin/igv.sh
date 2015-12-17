@@ -1,1 +1,1 @@
-java -Xmx2750m -jar ~/Apps/IGV/igv.jar
+java -Xmx2750m -jar ~/apps/IGV/igv.jar
