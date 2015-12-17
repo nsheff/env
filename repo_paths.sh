@@ -12,11 +12,18 @@ rpack_folder=`ls -d ~/code/*/ 2>/dev/null`
 repos=($repo_folder ${repo_individual[@]} $rpack_folder)
 
 # Loop through all repos and add bin folder to path, if it exists:
+# also the same for /scripts folders
 for f in "${repos[@]}"
 do
 f=$(eval echo "$f") #expand
 if [ -d "${f}bin" ]; then
 export PATH=$PATH:${f}bin
 fi
+if [ -d "${f}scripts" ]; then
+export PATH=$PATH:${f}scripts
+fi
+
+
+
 done
 
