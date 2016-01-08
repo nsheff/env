@@ -29,17 +29,17 @@ Start for a new system
 Start from here if you already have git set up how you want it
 
 	# TO clone this repository:
-	mkdir -p repo
-	cd repo
+	mkdir -p code
+	cd code
 	git clone git@github.com:sheffien/env.git
 
 	# Add a line like this into your .bashrc:
 	# source path/to/repo/env/bashsetup.sh
-	echo 'source ~/repo/env/bashsetup.sh' >> .bashrc
+	echo 'source ~/code/env/bashsetup.sh' >> .bashrc
 	
 	# Set up environment variables by pasting template `bash_vars_template.sh` into your `.bashrc`
 	# Then adjust the variables as appropriate for this system.
-	cat ~/repo/env/bash_vars_template.sh >> .bashrc
+	cat ~/code/env/bash_vars_template.sh >> .bashrc
 
 ## Establish some links
 Link .Rprofile:
@@ -53,7 +53,7 @@ Link tomboy notes:
 
 Link atom theme:
 
-	ln -s -i ~/repo/env/ns-atom-syntax/ ~/.atom/packages/ns-syntax
+	ln -s -i ~/code/env/ns-atom-syntax/ ~/.atom/packages/ns-syntax
 
 Link workrave stats:
 
@@ -65,7 +65,7 @@ Link gedit preferences
 
 Add launchers to menu so they can be dragged to quicklaunch panel:
 
-	cd ~/repo/env/launch
+	cd ~/code/env/launch
 	./linkLaunchers.sh
 
 ## Some manual installs:
@@ -74,7 +74,7 @@ Add launchers to menu so they can be dragged to quicklaunch panel:
 * [Virtualbox]() ?
 
 ## Clone my repos
-	cd repo
+	cd code
 	git clone git@github.com:sheffien/docker
 
 
