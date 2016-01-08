@@ -28,7 +28,7 @@ Start for a new system
 ## Cloning the repo and setting up
 Start from here if you already have git set up how you want it
 
-	# TO clone this repository:
+	# To clone this repository:
 	mkdir -p code
 	cd code
 	git clone git@github.com:sheffien/env.git
@@ -70,7 +70,7 @@ Add launchers to menu so they can be dragged to quicklaunch panel:
 
 ## Some manual installs:
 * [Docker](https://docs.docker.com/installation/ubuntulinux/#installation)
-* [SKype]()
+* [Skype]()
 * [Virtualbox]() ?
 
 ## Clone my repos
