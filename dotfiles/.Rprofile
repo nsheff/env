@@ -26,7 +26,7 @@ options(stringsAsFactors=FALSE);
 
 # old method (will be removed in the future)
 
-options(RGENOMEUTILS="~/rpack/RGenomeUtils/")
+options(RGENOMEUTILS="~/code/RGenomeUtils/")
 #options(SHARE.DIR="/data/groups/lab_bock/shared/resources/")
 #options(SHARE.RUTIL.DIR="~/rpack/RGenomeUtils/R/")
 
