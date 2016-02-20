@@ -4,6 +4,8 @@
 alias R="$(/usr/bin/which R) --no-save"
 alias lsd="ls -d */"
 alias ssh="ssh -X"
+alias tf="tail --follow"
+
 
 # Combined cd and ls
 cs ()
