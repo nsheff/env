@@ -32,20 +32,21 @@ Start from here if you already have git set up how you want it
 	mkdir -p code
 	cd code
 	git clone git@github.com:sheffien/env.git
-
+	
 	# Add a line like this into your .bashrc:
 	# source path/to/repo/env/bashsetup.sh
+	cd
 	echo 'source ~/code/env/bashsetup.sh' >> .bashrc
 	# Set up environment variables by pasting template `bash_vars_template.sh` into your `.bashrc`
 	# Then adjust the variables as appropriate for this system.
 	cat ~/code/env/bash_vars_template.sh >> .bashrc
 
 ## Establish some links
+
+Link tomboy notes:
 Link .Rprofile:
 
 	ln -s -i ${CODEBASE}env/dotfiles/.Rprofile $HOME/.Rprofile
-
-Link tomboy notes:
 
 	ln -s -i ~/Dropbox/env/.tomboy ~/.local/share/tomboy
 	ln -s -i ~/Dropbox/env/sshconfig .ssh/config
