@@ -5,6 +5,7 @@ alias R="$(/usr/bin/which R) --no-save"
 alias lsd="ls -d */"
 alias ssh="ssh -X"
 alias tf="tail --follow"
+alias ports="netstat -anltp | grep ssh"
 
 
 # Combined cd and ls
