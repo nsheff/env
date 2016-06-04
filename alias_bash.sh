@@ -7,6 +7,38 @@ alias ssh="ssh -X"
 alias tf="tail --follow"
 alias ports="netstat -anltp | grep ssh"
 
+mp()
+{
+	make sfm PROJ=$1
+}
+
+sp()
+{
+	source sp.sh
+}
+
+sfm()
+{
+	cd
+	make sfm PROJ=$PROJ
+}
+
+# does folder exist?
+
+fe ()
+{
+for var in "$@"
+do
+if [ -e "$var" ]
+then
+	echo -n "$var "
+else
+	echo " "
+fi
+done
+}
+
+export -f fe
 
 # Combined cd and ls
 cs ()
