@@ -1,32 +1,20 @@
 # Nathan's quick aliases.
 # Generic bash aliases
 
+# R should never ask me to save.
 alias R="$(/usr/bin/which R) --no-save"
 alias lsd="ls -d */"
 alias ssh="ssh -X"
 alias tf="tail --follow"
 alias ports="netstat -anltp | grep ssh"
 
-mp()
-{
-	make sfm PROJ=$1
-}
-
-sp()
-{
+# switch-project; function for setting active projects
+sp() {
 	source sp.sh
 }
 
-sfm()
-{
-	cd
-	make sfm PROJ=$PROJ
-}
-
 # does folder exist?
-
-fe ()
-{
+fe () {
 for var in "$@"
 do
 if [ -e "$var" ]
@@ -41,8 +29,7 @@ done
 export -f fe
 
 # Combined cd and ls
-cs ()
-{
+cs () {
         cd $1;
         ls -F --color=auto
 }
@@ -50,20 +37,23 @@ cs ()
 umask 002
 
 # Counts files in each subdirectory, by @Thor
-cf () 
-{
+cf () {
 find . -maxdepth 1 -mindepth 1 -type d | while read dir; do   printf "%-25.25s : " "$dir";   find "$dir" -type f | wc -l; done
 }
 
+cfdu() {
+  find . -maxdepth 1 -mindepth 1 -type d | while read dir; do diskrep "$dir"; done;
+}
+
 # Tar up a folder. Creates an archive of a folder
-tu ()
-{ 
+tu () { 
 tar -czpf $1.tgz $1
 }
+
 PYTHONPATH=$PYTHONPATH:~/mypython
 
-diskrep ()
-{
+# Untested attempt at a disk usage report.
+diskrep () {
   diskUse=$(du -s "$1" | cut -f1)
   #regex="(.*)"
   #[[ $diskUse =~ $regex ]]
@@ -80,12 +70,4 @@ diskrep ()
   fi
   
 
-}
-
-cf() {
- find . -maxdepth 1 -mindepth 1 -type d | while read dir; do   printf "%-25.25s : " "$dir";   find "$dir" -type f | wc -l; done
-}
-
-cfdu() {
-  find . -maxdepth 1 -mindepth 1 -type d | while read dir; do diskrep "$dir"; done;
 }
