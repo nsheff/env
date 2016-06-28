@@ -20,8 +20,8 @@ Start for a new system
 	sudo apt-get install -y git
 
 	# Setting up github account global config options
-	git config --global user.email "sheffien@users.noreply.github.com"
-	git config --global user.name "sheffien"
+	git config --global user.email "nsheff@users.noreply.github.com"
+	git config --global user.name "nsheff"
 
 	# Set up auth keys if you like
 
@@ -31,7 +31,7 @@ Start from here if you already have git set up how you want it
 	# To clone this repository:
 	mkdir -p code
 	cd code
-	git clone git@github.com:sheffien/env.git
+	git clone git@github.com:nsheff/env.git
 	
 	# Add a line like this into your .bashrc:
 	# source path/to/repo/env/bashsetup.sh
@@ -76,4 +76,4 @@ Add launchers to menu so they can be dragged to quicklaunch panel:
 
 ## Clone my repos
 	cd code
-	git clone git@github.com:sheffien/docker
+	git clone git@github.com:nsheff/docker
