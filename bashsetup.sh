@@ -6,3 +6,4 @@ source ${BASH_SOURCE%/*}/alias_git.sh
 source ${BASH_SOURCE%/*}/alias_docker.sh
 source ${BASH_SOURCE%/*}/alias_slurm.sh
 source ${BASH_SOURCE%/*}/alias_bash.sh
+source ${BASH_SOURCE%/*}/alias_project.sh
