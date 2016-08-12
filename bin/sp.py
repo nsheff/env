@@ -18,10 +18,11 @@ import sys
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
+# Method one: list your projects here
+#projects = ["ews_patients", "epigenome_compendium"]
 
-projects = ["ews_patients", "epigenome_compendium"]
-project_dir = os.path.expanduser(os.environ["CODEBASE"])
-
+# Method 2: each subfolder in a provided directory is a project
+project_dir = os.path.expanduser(os.environ["LCODE"])
 subfolders = [item for item in os.walk(project_dir).next()[1]]
 projects = sorted(subfolders, key=str.lower)
 

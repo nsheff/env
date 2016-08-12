@@ -37,8 +37,7 @@ Start from here if you already have git set up how you want it
 	# source path/to/repo/env/bashsetup.sh
 	cd
 	echo 'source ~/code/env/bashsetup.sh' >> .bashrc
-	# Set up environment variables by pasting template `bash_vars_template.sh` into your `.bashrc`
-	# Then adjust the variables as appropriate for this system.
+	# Set up environment variables by pasting template `bash_vars_template.sh` # into your `.bashrc` Then adjust variables for this system.
 	cat ~/code/env/bash_vars_template.sh >> .bashrc
 
 ## Establish some links

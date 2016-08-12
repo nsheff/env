@@ -3,15 +3,12 @@
 
 # R should never ask me to save.
 alias R="$(/usr/bin/which R) --no-save"
-alias lsd="ls -d */"
+# Forward X sessions over ssh by default
 alias ssh="ssh -X"
+
+alias lsd="ls -d */"
 alias tf="tail --follow"
 alias ports="netstat -anltp | grep ssh"
-
-# switch-project; function for setting active projects
-sp() {
-	source sp.sh
-}
 
 # does folder exist?
 fe () {
