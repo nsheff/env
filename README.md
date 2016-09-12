@@ -76,6 +76,9 @@ Add launchers to menu so they can be dragged to quicklaunch panel:
 
 	cd ~/code/env/launch
 	./linkLaunchers.sh
+	
+Add pointer to env Makefile
+	echo 'include ~/Dropbox/env/Makefile' >> Makefile
 
 ## Some manual installs:
 * [Docker](https://docs.docker.com/installation/ubuntulinux/#installation)
