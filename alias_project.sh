@@ -108,3 +108,16 @@ p.sfm () {
 	echo ${folders}
 	spacefm -wn ${folders} & 
 }
+
+
+a.rcemm () {
+	ssh -tX cemm salloc -t 0-8 -p develop --mem=16000 -w n002 "R --no-save --no-restore"
+}
+
+a.rrivi () {
+	ssh -tX rivi "R --no-save --no-restore"
+}
+
+a.rriviint () {
+	ssh -tX rivi salloc -t 0-9 -p economy --mem=16000 "R --no-save --no-restore"
+}
