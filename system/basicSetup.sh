@@ -12,6 +12,7 @@ sudo apt-get install -y atom
 sudo apt-get install -y byobu
 sudo apt-get install -y vim
 sudo apt-get install -y chromium-browser
+sudo apt-get install -y nfs-common
 
 sudo apt-get install -y workrave
 sudo apt-get install -y audacious 
