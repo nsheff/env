@@ -1,5 +1,5 @@
 
-sudo apt-get install virtualbox
+sudo apt-get install virtualbox spacefm htop
 
 # Rgedit:
 # http://heanet.dl.sourceforge.net/project/rgedit/rgedit-0.8.0.2-Gtk3-Python3.tar.bz2
@@ -22,7 +22,6 @@ ttf-mscorefonts-installer \
 
 # work tools
 samtools
-htop
 libgsl0-dev #Gnu scientific library; MotIV needs it.
 
 #workrave
