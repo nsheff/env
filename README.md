@@ -24,6 +24,15 @@ Start for a new system
 	git config --global user.name "nsheff"
 
 	# Set up auth keys if you like
+	# instructions:
+	
+	ssh-keygen -t rsa -b 4096 -C "identifier"
+	
+	# Now copy/paste that into GitHub at: https://github.com/settings/ssh
+
+## Run basic configuration
+
+Use one of the scripts in [system/](system) like [system/basicSetup.sh](system/basicSetup.sh)
 
 ## Cloning the repo and setting up
 Start from here if you already have git set up how you want it
@@ -47,7 +56,7 @@ Link .Rprofile:
 
 	ln -s -i ${CODEBASE}env/dotfiles/.Rprofile $HOME/.Rprofile
 
-	ln -s -i ~/Dropbox/env/.tomboy ~/.local/share/tomboy
+	ln -s -i ~/Dropbox/.tomboy ~/.local/share/tomboy
 	ln -s -i ~/Dropbox/env/sshconfig .ssh/config
 
 Link atom theme:
