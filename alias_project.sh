@@ -55,6 +55,12 @@ p.res() {
 	rsync -av ${REMOTE}:${PROCESSED}${PROJ}/results_analysis/ ${LPROCESSED}${PROJ}/results_analysis/
 }
 
+p.ressmall() {
+	echo ${PROJ}
+	rsync -av --max-size=50m ${REMOTE}:${PROCESSED}${PROJ}/results_analysis/ ${LPROCESSED}${PROJ}/results_analysis/
+}
+
+
 p.gettype() {
 	TYPE=$1
 	echo ${TYPE}
