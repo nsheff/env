@@ -55,6 +55,16 @@ p.res() {
 	rsync -av ${REMOTE}:${PROCESSED}${PROJ}/results_analysis/ ${LPROCESSED}${PROJ}/results_analysis/
 }
 
+p.geo() {
+	echo ${PROJ}
+	rsync -av ${REMOTE}:${PROCESSED}${PROJ}/geo_submission/*.tsv ${LPROCESSED}${PROJ}/geo_submission/
+}
+
+p.als() {
+	echo ${PROJ}
+	rsync -av ${REMOTE}:${PROCESSED}${PROJ}/analysis/ ${LPROCESSED}${PROJ}/analysis/
+}
+
 p.ressmall() {
 	echo ${PROJ}
 	rsync -av --max-size=50m ${REMOTE}:${PROCESSED}${PROJ}/results_analysis/ ${LPROCESSED}${PROJ}/results_analysis/
@@ -67,10 +77,17 @@ p.gettype() {
 	rsync -avr --include="${TYPE}" --include="*/" --exclude="*" ${REMOTE}:${PROCESSED}${PROJ}/results_pipeline ${LPROCESSED}${PROJ}
 }
 
+p.getpl() {
+	TYPE=$1
+	echo ${TYPE}
+	rsync -avr ${REMOTE}:${PROCESSED}${PROJ}/results_pipeline ${LPROCESSED}${PROJ}
+}
+
+
 p.puttype() {
 	TYPE=$1
 	echo ${TYPE}
-	rsync -avr --include="${TYPE}" --include="*/" --exclude="*" ${LPROCESSED}${PROJ} ${REMOTE}:${PROCESSED}${PROJ}/results_pipeline
+	rsync -avr --include="${TYPE}" --include="*/" --exclude="*" ${LPROCESSED}${PROJ} ${REMOTE}:${PROCESSED}
 }
 
 # grab fastqc pipeline results from remote server
@@ -109,9 +126,16 @@ p.sfm () {
 	spacefm -wn ${folders} & 
 }
 
-
 a.rcemm () {
 	ssh -tX cemm salloc -t 0-8 -p develop --mem=16000 -w n002 "R --no-save --no-restore"
+}
+
+a.rcemmbigmem () {
+	ssh -tX cemm salloc -t 0-8 -p develop --mem=48000 -w n002 "R --no-save --no-restore"
+}
+
+a.rcemmbigmem () {
+	ssh -tX cemm salloc -t 0-8 -p develop --mem=48000 -w n002 "bash"
 }
 
 a.rrivi () {
