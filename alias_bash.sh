@@ -12,7 +12,9 @@ alias ports="netstat -anltp | grep ssh"
 
 # This alias will tell you how much of the CPU is currently
 # being used.
-alias busy="top -bn 2 -d 0.01 | grep '^Cpu.s.' | tail -n 1 | gawk '{print $2+$4+$6}'"
+busy () {
+  top -bn 4 -d 0.5 | grep 'Cpu.s.' | tail -n 3 | gawk '{print $2+$4+$6}'
+}
 
 
 # does folder exist?
