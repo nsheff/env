@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<keys name="NCS">  
+	<bind key="q" modifiers="Ctrl,Shift" action="EditSelectSameFillStroke" display="true" />
+	<bind key="Q" modifiers="Ctrl,Shift" action="EditSelectSameFillStroke" />
+</keys>
