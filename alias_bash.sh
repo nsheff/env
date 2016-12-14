@@ -13,7 +13,8 @@ alias ports="netstat -anltp | grep ssh"
 # This alias will tell you how much of the CPU is currently
 # being used.
 busy () {
-  top -bn 4 -d 0.5 | grep 'Cpu.s.' | tail -n 3 | gawk '{print $2+$4+$6}'
+  ncpu=`lscpu | grep "^CPU(s):" | awk '{print $2}'`
+  top -bn 4 -d 0.5 | grep 'Cpu.s.' | tail -n 3 | gawk '{print $2+$4+$6}  (($2+$4+$6) * $ncpu of $ncpu)'
 }
 
 

@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
+<!-- http://bazaar.launchpad.net/~inkscape.dev/inkscape/trunk/view/head:/share/keys/inkscape.xml -->
+
 <keys name="NCS">  
 	<bind key="q" modifiers="Ctrl,Shift" action="EditSelectSameFillStroke" display="true" />
 	<bind key="Q" modifiers="Ctrl,Shift" action="EditSelectSameFillStroke" />
+  	<bind key="v" modifiers="Ctrl,Alt,Shift" action="EditPasteSizeSeparately" display="true" />
+  	<bind key="V" modifiers="Ctrl,Alt,Shift" action="EditPasteSizeSeparately" />
+  	<bind key="k" modifiers="Ctrl,Alt,Shift" action="SelectionTextRemoveKerns" />
+  	<bind key="K" modifiers="Ctrl,Alt,Shift" action="SelectionTextRemoveKerns" />
 </keys>
