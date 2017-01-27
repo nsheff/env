@@ -17,6 +17,15 @@ busy () {
   top -bn 4 -d 0.5 | grep 'Cpu.s.' | tail -n 3 | gawk '{print $2+$4+$6}  (($2+$4+$6) * $ncpu of $ncpu)'
 }
 
+cdp() {
+  cd $PROCESSED/$1
+}
+
+# Combine pdf
+cpdf() {
+gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=merged.pdf \
+"$@"
+}
 
 # does folder exist?
 fe () {

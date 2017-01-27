@@ -2,7 +2,7 @@
 # To use these, just source this file in your .bashrc
 
 alias gco="git checkout master"
-alias gpr="git pull --rebase"
+alias gpr="git pull origin HEAD --rebase"
 alias gdn="git diff HEAD --name-only; git ls-files --others --exclude-standard"
 alias gd="git diff HEAD"
 alias ga="git add"
