@@ -11,10 +11,19 @@ alias gst="git status"
 alias gcm="git commit -m"
 alias gpom="git push origin master"
 alias gpoh="git push origin HEAD"
+alias gprh="git push riv HEAD"  # push-to-deploy to rivanna
+
 alias gpa="git push --all"
 alias gpo="git push origin"
 alias glop="git log --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%an|%Cgreen%d %Creset%s' --date=short | column -ts'|' | less -r"
+alias gr='git remote -vv'
 
+gar()
+{
+	PWD=`pwd`
+	BN=`basename $PWD`
+	git remote add riv rivi:code/${BN}/.git
+}
 
 # git clone alias
 gclo() 
