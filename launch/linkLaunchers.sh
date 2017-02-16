@@ -1,2 +1,2 @@
-sudo ln *.desktop /usr/share/applications
+ln *.desktop ~/.local/share/applications
 
