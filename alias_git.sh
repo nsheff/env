@@ -17,6 +17,7 @@ alias gpa="git push --all"
 alias gpo="git push origin"
 alias glop="git log --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%an|%Cgreen%d %Creset%s' --date=short | column -ts'|' | less -r"
 alias gr='git remote -vv'
+alias gb='git branch -vv'
 
 gar()
 {
