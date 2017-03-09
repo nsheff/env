@@ -14,7 +14,7 @@ alias ports="netstat -anltp | grep ssh"
 # Prompt for a password on first swift use, to prevent
 # storing password in plain text file.
 swf() {
-  if [ -z ${ST_KEY} ]; then read -s ST_KEY; fi
+  if [ -z ${ST_KEY} ]; then echo -e "ST_USER:${ST_USER}\nPassword:"; read -s ST_KEY; fi
   export ST_KEY
   swift $@
 }
