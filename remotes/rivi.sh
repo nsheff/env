@@ -5,10 +5,10 @@ export REMOTE="rivi"
 export RAWDATA="/scratch/ns5bc/data/"
 
 # Pointer to the 'processed data' filesystem
-export PROCESSED="/scratch/ns5bc/processed/"
+export PROCESSED="/sfs/lustre/allocations/shefflab/processed/"
 
 # Pointer to the common shared resources directory
-export RESOURCES="/scratch/ns5bc/resources/"
+export RESOURCES="/h4/t1/resources/"
 
 # Pointer to the collection of git repos
 export CODEBASE="/home/ns5bc/code/"

@@ -11,13 +11,6 @@ alias tf="tail --follow"
 alias ports="netstat -anltp | grep ssh"
 
 
-# Prompt for a password on first swift use, to prevent
-# storing password in plain text file.
-swf() {
-  if [ -z ${ST_KEY} ]; then echo -e "ST_USER:${ST_USER}\nPassword:"; read -s ST_KEY; fi
-  export ST_KEY
-  swift $@
-}
 
 # This alias will tell you how much of the CPU is currently
 # being used.
