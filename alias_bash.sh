@@ -10,7 +10,7 @@ alias lsd="ls -d */"
 alias tf="tail --follow"
 alias ports="netstat -anltp | grep ssh"
 
-
+alias mytop='top -M -u $USER'
 
 # This alias will tell you how much of the CPU is currently
 # being used.
