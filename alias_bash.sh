@@ -66,8 +66,6 @@ tu () {
 tar -czpf $1.tgz $1
 }
 
-PYTHONPATH=$PYTHONPATH:~/mypython
-
 # Untested attempt at a disk usage report.
 diskrep () {
   diskUse=$(du -s "$1" | cut -f1)
