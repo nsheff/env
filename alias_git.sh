@@ -31,3 +31,20 @@ gclo()
 {
 	git clone git@github.com:$1
 }
+
+newproject() {
+	PROJ=$1
+	echo "Build project ${PROJ}"
+	gclo databio/newproject
+	mv newproject ${PROJ}
+	cd ${PROJ}
+	rm Makefile
+	echo "# ${PROJ}" > README.md
+	rm -rf .git
+	git init
+	git add .
+	git commit -m "Initialize project template"
+	git remote add origin git@github.com:databio/${PROJ}.git
+	git push -u --force origin master
+	cd ..
+}

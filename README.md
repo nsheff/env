@@ -28,7 +28,10 @@ Start for a new system
 	
 	ssh-keygen -t rsa -b 4096 -C "identifier"
 	
-	# Now copy/paste that into GitHub at: https://github.com/settings/ssh
+	# Now copy/paste that into GitHub
+	 cat .ssh/id_rsa.pub
+
+Link for adding new ssh key: https://github.com/settings/ssh
 
 ## Run basic configuration
 
