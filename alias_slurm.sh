@@ -2,7 +2,7 @@
 # To use these, just source this file in your .bashrc
 
 
-alias scount="squeue | awk '{print \$4 \"(\" \$5 \")\"}' | sort | uniq -c"
+alias scount="squeue | awk '{print \$4 \"(\" \$5 \")\"}' | sort | uniq -c  | tr \"\n\" \"\t\" | sed 's/\([0-9][0-9]*\) /\1:/g' | sed 's/ //g' | fmt"
 alias myq='squeue -o " %.48j %.8i %.4P %.2t %.10M %.7m %z %c %.8R %.8n" -u `whoami` -S i; scount'
 
 
