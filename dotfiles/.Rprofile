@@ -1,37 +1,27 @@
-# Choose bioconductor mirror:
 biocLoaded=FALSE
 if (FALSE) {
+	# Use this section if you need to specify an alternative bioconductor mirror
 	oldTimeout = options(timeout = 3) # lower timout
 	tryCatch( {
-		source("http://bioconductor.statistik.tu-dortmund.de/biocLite.R")
 		biocLoaded=TRUE
 	}, error = function(e) { 
-		message("Unable to connect to local bioconductor mirror, using default." )
+		message("Unable to connect to bioconductor mirror, using default." )
 	})
 	options(oldTimeout)
 }
 if (!biocLoaded) {
 	source("http://bioconductor.org/biocLite.R")
 }
+
 # Set global options
 options(menu.graphics=FALSE);
 options(echo=TRUE);
 options(stringsAsFactors=FALSE);
 
-# Set up base directory for shared util functions:
-#homeDir = Sys.getenv("HOME")
-#options(PROJECT.DATA.BASE = "/fhgfs/groups/lab_bock/shared/projects/")
-#options(RESOURCE.DIR="/data/groups/lab_bock/shared/resources/")
-#options(PROJECT.CODE.BASE=paste0(homeDir, "/repo/"))
-
-# old method (will be removed in the future)
-
+# Set environment variable connection to shared functions
 options(RGENOMEUTILS="~/code/RGenomeUtils/")
-#options(SHARE.DIR="/data/groups/lab_bock/shared/resources/")
-#options(SHARE.RUTIL.DIR="~/rpack/RGenomeUtils/R/")
 
-
-#source(paste0(getOption("SHARE.DIR"), "project.init.R"))
+# Load project.init (if installed)
 tryCatch( {
 	library(project.init)
 }, error = function(e) {
