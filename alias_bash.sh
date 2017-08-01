@@ -2,7 +2,7 @@
 # Generic bash aliases
 
 # R should never ask me to save.
-alias R="$(/usr/bin/which R 2> \dev\null) --no-save"
+alias R="$(/usr/bin/which R 2> /dev/null) --no-save"
 # Forward X sessions over ssh by default
 alias ssh="ssh -X"
 
