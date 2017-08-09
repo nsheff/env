@@ -23,6 +23,14 @@ cdp() {
   cd $PROCESSED/$1
 }
 
+# convert inkscape black to white.
+function b2w {
+  file=${1%.*}
+  echo $file
+  sed 's/000000/FFFFFF/g' $1 > ${file}_white.svg  
+}
+
+
 # Combine pdf
 cpdf() {
 gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=merged.pdf \

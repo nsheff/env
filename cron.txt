@@ -1,0 +1,2 @@
+# monthly: 0 0 1 * *
+0 0 1 * * docker run -it nsheff/linkchecker linkchecker www.databio.org | mutt nathan@code.databio.org
