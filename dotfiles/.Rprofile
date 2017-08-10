@@ -27,3 +27,12 @@ tryCatch( {
 }, error = function(e) {
 	message(e)
 })
+
+# Load common packages
+message("init packages...");
+library(devtools)
+library(data.table, quietly=TRUE)
+library(extrafont)
+library(simpleCache)
+library(ggplot2)
+
