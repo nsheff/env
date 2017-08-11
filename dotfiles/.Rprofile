@@ -35,4 +35,4 @@ library(data.table, quietly=TRUE)
 library(extrafont)
 library(simpleCache)
 library(ggplot2)
-
+library(RGenomeUtils)
