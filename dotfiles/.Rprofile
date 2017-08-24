@@ -28,8 +28,7 @@ tryCatch( {
 	message(e)
 })
 
-<<<<<<< 5c7a0e0edfe97658e5b293d69dbdd7ab8201d119
-# Load common packages
+
 message("init packages...");
 library(devtools)
 library(data.table, quietly=TRUE)
@@ -37,8 +36,3 @@ library(extrafont)
 library(simpleCache)
 library(ggplot2)
 library(RGenomeUtils)
-=======
-# Load stuff I use a lot:
-library(devtools)
-library(data.table)
->>>>>>> add to rprof
