@@ -1,6 +1,6 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=jabref
-Exec=jabref
-Icon=/home/nsheffield/Dropbox/Logos/folder_ews.svg
-Terminal=false
+Exec="/home/nsheff/code/env/bin/jabref.sh"
+Icon=/home/nsheff/Dropbox/science_media/logo/JabRef_Icon.svg
 Type=Application

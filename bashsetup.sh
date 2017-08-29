@@ -12,3 +12,4 @@ source ${BASH_SOURCE%/*}/alias_project.sh
 source ${BASH_SOURCE%/*}/alias_looper.sh
 
 export REMOTES=${BASH_SOURCE%/*}/remotes
+source ${BASH_SOURCE%/*}/default_remote.sh

@@ -1,6 +1,6 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Name=StartWorkrave
+Name=workrave
 Exec=workrave
 Type=Application
 Description=Custom Launcher

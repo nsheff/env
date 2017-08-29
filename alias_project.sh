@@ -30,8 +30,17 @@ done
 
 export -f fe
 
+# default to current folder
+setproject() {
+	if [ -z ${var+x} ];
+		wd=`pwd`
+		then export PROJ=`basename $wd`;
+	else echo "var is set to '$var'"; fi
+
+}
+
 # grab statistics from remote server
-p.stat () {
+p.stat() {
 	echo ${PROJ}
 	rsync -av ${REMOTE}:${PROCESSED}/${PROJ}/*.tsv ${LPROCESSED}${PROJ}/
 }
@@ -45,6 +54,7 @@ p.code() {
 
 # push everything!
 p.all() {
+	setproject
 	echo ${PROJ}
 	rsync -av ${LCODE}/${PROJ}/. ${REMOTE}:~/code/${PROJ}/
 }

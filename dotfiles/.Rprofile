@@ -23,7 +23,7 @@ options(RGENOMEUTILS="~/code/RGenomeUtils/")
 
 # Load project.init (if installed)
 tryCatch( {
-	library(project.init)
+	library(projectInit)
 }, error = function(e) {
 	message(e)
 })
@@ -32,7 +32,6 @@ tryCatch( {
 message("init packages...");
 library(devtools)
 library(data.table, quietly=TRUE)
-library(extrafont)
 library(simpleCache)
 library(ggplot2)
 library(RGenomeUtils)
