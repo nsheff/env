@@ -2,17 +2,13 @@
 export REMOTE="cemm"
 
 # Pointer to the 'raw data' filesystem
-export RAWDATA="/fhgfs/groups/lab_bsf/samples/"
-export DATA="/fsl/data/"
+export REMOTE_DATA="/fhgfs/groups/lab_bsf/samples/"
 
 # Pointer to the 'processed data' filesystem
-export PROCESSED="/scratch/lab_bock/shared/projects/"
+export REMOTE_PROCESSED="/scratch/lab_bock/shared/projects/"
 
 # Pointer to the common shared resources directory
-export RESOURCES="/data/groups/lab_bock/shared/resources/"
+export REMOTE_RESOURCES="/data/groups/lab_bock/shared/resources/"
 
 # Pointer to the collection of git repos
-export CODEBASE="$HOME/code/"
-
-# Legacy variable: just points to RGenomeUtils repo
-export SHARE_DIR="~/code/RGenomeUtils/"
+export REMOTE_CODEBASE="$HOME/code/"
