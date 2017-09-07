@@ -2,7 +2,9 @@
 # Generic bash aliases
 
 # R should never ask me to save.
-alias R="$(/usr/bin/which R 2> /dev/null) --no-save"
+# This doesn't work if you don't already have R loaded when this script is run.
+# Better to do this from within .Rprofile.
+# alias R="$(/usr/bin/which R 2> /dev/null) --no-save"
 # Forward X sessions over ssh by default
 alias ssh="ssh -X"
 
