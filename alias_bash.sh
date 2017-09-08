@@ -25,6 +25,10 @@ cdp() {
   cd $PROCESSED/$1
 }
 
+pkgdowngen() {
+  R --quiet -e "pkgdown::build_site('${HOME}/code/$1', path='../code.databio.org/$1')"
+}
+
 # convert inkscape black to white.
 function b2w {
   file=${1%.*}
