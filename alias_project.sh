@@ -59,29 +59,30 @@ p.code() {
 p.all() {
 	setproject
 	echo ${PROJ}
-	rsync -av ${CODE}/${PROJ}/. ${REMOTE}:~/code/${PROJ}/
+	rsync -avR ${CODE}/${PROJ}/. ${REMOTE}:~/code/${PROJ}/
 }
 
 # grab analysis results from remote server
 p.res() {
 	echo ${PROJ}
-	rsync -av ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_analysis/ ${PROCESSED}${PROJ}/results_analysis/
+	rsync -avR ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_analysis/ ${PROCESSED}${PROJ}/results_analysis/
 }
 
 p.geo() {
 	echo ${PROJ}
-	rsync -av ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/geo_submission/*.tsv ${PROCESSED}${PROJ}/geo_submission/
+	rsync -avR ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/geo_submission/*.tsv ${PROCESSED}${PROJ}/geo_submission/
 }
 
 p.als() {
 	setproject
+	mkdir -p ${PROCESSED}${PROJ}/analysis/
 	echo ${PROJ}
-	rsync -av ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/analysis/ ${PROCESSED}${PROJ}/analysis/
+	rsync -avR ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/analysis/ ${PROCESSED}${PROJ}/analysis/
 }
 
 p.ressmall() {
 	echo ${PROJ}
-	rsync -av --max-size=50m ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_analysis/ ${PROCESSED}${PROJ}/results_analysis/
+	rsync -avR --max-size=50m ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_analysis/ ${PROCESSED}${PROJ}/results_analysis/
 }
 
 
@@ -89,7 +90,7 @@ p.gettype() {
 	setproject
 	TYPE=$1
 	echo ${TYPE}
-	rsync -avr --include="${TYPE}" --include="*/" --exclude="*" ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_pipeline ${PROCESSED}${PROJ}
+	rsync -avrR --include="${TYPE}" --include="*/" --exclude="*" ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_pipeline ${PROCESSED}${PROJ}
 }
 
 p.getpl() {
