@@ -3,7 +3,13 @@
 # you switch active projects, and then control syncing
 # that project among local and remote servers.
 
-
+md2txt() {
+	pandoc -s `ls -1vr $1*` \
+	-t plain \
+	--wrap=none \
+	--bibliography $bib \
+	--csl $csl | sed 's/^_//g;s/\([^A-Za-z0-9]\)_/\1/g;s/_\([^A-Za-z0-9]\)/\1/g' > output/$1.txt
+}
 
 # switch-project; function for setting active projects
 sp() {
@@ -62,6 +68,12 @@ p.all() {
 	rsync -av ${CODE}/${PROJ}/. ${REMOTE}:~/code/${PROJ}/
 }
 
+p.forcesync() {
+	setproject
+	echo ${PROJ}
+	rsync -av --delete ${CODE}/${PROJ}/. ${REMOTE}:~/code/${PROJ}/
+}
+
 # grab analysis results from remote server
 p.res() {
 	echo ${PROJ}
@@ -78,6 +90,12 @@ p.als() {
 	mkdir -p ${PROCESSED}${PROJ}/analysis/
 	echo ${PROJ}
 	rsync -av ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/analysis/ ${PROCESSED}${PROJ}/analysis/
+}
+
+p.linkproc() {
+	setproject
+	echo ${PROJ}
+	python ${CODEBASE}scripts/misc/linkme.py ${PROCESSED}${PROJ}/results_pipeline/
 }
 
 p.ressmall() {

@@ -1,1 +1,1 @@
-java -jar ~/apps/JabRef-3.8.1.jar
+java -jar ~/apps/JabRef-4.0.jar

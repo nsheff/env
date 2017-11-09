@@ -1,5 +1,5 @@
 # ssh alias for the remote server
-export REMOTE="aphro"
+export REMOTE="aml02"
 
 # Pointer to the 'raw data' filesystem
 export REMOTE_DATA="/athena/melnicklab/users/scratch/okbm4/data/"

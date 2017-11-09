@@ -2,5 +2,5 @@
 [Desktop Entry]
 Name=IGV
 Exec="/home/nsheff/code/env/bin/igv.sh"
-Icon=/home/nsheff/Dropbox/science_media/logo/igv-logo.svg
+Icon="/home/nsheff/Dropbox/science_media/logo/igv-logo.svg"
 Type=Application
