@@ -40,10 +40,12 @@ export -f fe
 # by calling this before each of my project functions, if $PROJ is not set,
 # it will assume I'm in the subfolder for the project.
 setproject() {
-	if [ -z ${PROJ+x} ];
+
+	if [ -z ${PROJ} ]; then
 		wd=`pwd`
-		then export PROJ=`basename $wd`;
-	else echo "PROJ is set to '$PROJ'"; fi
+		export PROJ=`basename $wd`;
+		echo "setting PROJ to $PROJ"
+	else echo "PROJ is already set to '$PROJ'"; fi
 
 }
 
