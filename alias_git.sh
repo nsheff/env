@@ -27,9 +27,10 @@ gar()
 }
 
 # git clone alias
+# add --recursive so it will grab submodules as well by default.
 gclo() 
 {
-	git clone git@github.com:$1
+	git clone git@github.com:$1 --recursive
 }
 
 newproject() {
