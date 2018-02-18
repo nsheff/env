@@ -3,7 +3,13 @@
 # you switch active projects, and then control syncing
 # that project among local and remote servers.
 
-
+md2txt() {
+	pandoc -s `ls -1vr $1*` \
+	-t plain \
+	--wrap=none \
+	--bibliography $bib \
+	--csl $csl | sed 's/^_//g;s/\([^A-Za-z0-9]\)_/\1/g;s/_\([^A-Za-z0-9]\)/\1/g' > output/$1.txt
+}
 
 # switch-project; function for setting active projects
 sp() {
@@ -31,110 +37,144 @@ done
 export -f fe
 
 # default to current folder
+# by calling this before each of my project functions, if $PROJ is not set,
+# it will assume I'm in the subfolder for the project.
 setproject() {
-	if [ -z ${var+x} ];
+
+	if [ -z ${PROJ} ]; then
 		wd=`pwd`
-		then export PROJ=`basename $wd`;
-	else echo "var is set to '$var'"; fi
+		export PROJ=`basename $wd`;
+		echo "setting PROJ to $PROJ"
+	else echo "PROJ is already set to '$PROJ'"; fi
 
 }
 
 # grab statistics from remote server
 p.stat() {
+	setproject
 	echo ${PROJ}
-	rsync -av ${REMOTE}:${PROCESSED}/${PROJ}/*.tsv ${LPROCESSED}${PROJ}/
+	rsync -av ${REMOTE}:${REMOTE_PROCESSED}/${PROJ}/*.tsv ${PROCESSED}${PROJ}/
 }
 
 # push code and metadata to remote server
 p.code() {
 	echo ${PROJ}
-	rsync -av ${LCODE}/${PROJ}/src/. ${REMOTE}:~/code/${PROJ}/src/
-	rsync -av ${LCODE}/${PROJ}/metadata/. ${REMOTE}:~/code/${PROJ}/metadata/
+	rsync -av ${CODE}/${PROJ}/src/. ${REMOTE}:~/code/${PROJ}/src/
+	rsync -av ${CODE}/${PROJ}/metadata/. ${REMOTE}:~/code/${PROJ}/metadata/
 }
 
 # push everything!
 p.all() {
 	setproject
 	echo ${PROJ}
-	rsync -av ${LCODE}/${PROJ}/. ${REMOTE}:~/code/${PROJ}/
+	rsync -av ${CODE}/${PROJ}/. ${REMOTE}:~/code/${PROJ}/
+}
+
+p.forcesync() {
+	setproject
+	echo ${PROJ}
+	rsync -av --delete ${CODE}/${PROJ}/. ${REMOTE}:~/code/${PROJ}/
 }
 
 # grab analysis results from remote server
 p.res() {
 	echo ${PROJ}
-	rsync -av ${REMOTE}:${PROCESSED}${PROJ}/results_analysis/ ${LPROCESSED}${PROJ}/results_analysis/
+	rsync -av ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_analysis/ ${PROCESSED}${PROJ}/results_analysis/
 }
 
 p.geo() {
 	echo ${PROJ}
-	rsync -av ${REMOTE}:${PROCESSED}${PROJ}/geo_submission/*.tsv ${LPROCESSED}${PROJ}/geo_submission/
+	rsync -av ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/geo_submission/*.tsv ${PROCESSED}${PROJ}/geo_submission/
 }
 
 p.als() {
+	setproject
+	mkdir -p ${PROCESSED}${PROJ}/analysis/
 	echo ${PROJ}
-	rsync -av ${REMOTE}:${PROCESSED}${PROJ}/analysis/ ${LPROCESSED}${PROJ}/analysis/
+	rsync -av ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/analysis/ ${PROCESSED}${PROJ}/analysis/
+}
+
+p.linkproc() {
+	setproject
+	echo ${PROJ}
+	python ${CODEBASE}scripts/misc/linkme.py ${PROCESSED}${PROJ}/results_pipeline/
 }
 
 p.ressmall() {
 	echo ${PROJ}
-	rsync -av --max-size=50m ${REMOTE}:${PROCESSED}${PROJ}/results_analysis/ ${LPROCESSED}${PROJ}/results_analysis/
+	rsync -av --max-size=50m ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_analysis/ ${PROCESSED}${PROJ}/results_analysis/
 }
 
 
 p.gettype() {
+	setproject
 	TYPE=$1
 	echo ${TYPE}
-	rsync -avr --include="${TYPE}" --include="*/" --exclude="*" ${REMOTE}:${PROCESSED}${PROJ}/results_pipeline ${LPROCESSED}${PROJ}
+	rsync -avr --include="${TYPE}" --include="*/" --exclude="*" ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_pipeline ${PROCESSED}${PROJ}
 }
 
 p.getpl() {
 	TYPE=$1
 	echo ${TYPE}
-	rsync -avr ${REMOTE}:${PROCESSED}${PROJ}/results_pipeline ${LPROCESSED}${PROJ}
+	rsync -avr ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_pipeline ${PROCESSED}${PROJ}
 }
 
 
 p.puttype() {
 	TYPE=$1
 	echo ${TYPE}
-	rsync -avr --include="${TYPE}" --include="*/" --exclude="*" ${LPROCESSED}${PROJ} ${REMOTE}:${PROCESSED}
+	rsync -avr --include="${TYPE}" --include="*/" --exclude="*" ${PROCESSED}${PROJ} ${REMOTE}:${REMOTE_PROCESSED}
 }
 
 # grab fastqc pipeline results from remote server
 p.rep() { 
 	echo ${PROJ}
-	rsync -av ${REMOTE}:${PROCESSED}${PROJ}/results_pipeline/*/fastq/*.html ${LPROCESSED}${PROJ}/results_pipeline/
+	rsync -av ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_pipeline/*/fastq/*.html ${PROCESSED}${PROJ}/results_pipeline/
 }
 
 # grab ALL pipeline results from remote server (can take awhile!)
 p.resall() { 
 	echo ${PROJ}
-	rsync -av ${REMOTE}:${PROCESSED}${PROJ}/results_pipeline/ ${LPROCESSED}${PROJ}/results_pipeline/
+	rsync -av ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_pipeline/ ${PROCESSED}${PROJ}/results_pipeline/
 }
 
 # put ALL pipeline results to remote server
 p.resallput() { 
 	echo ${PROJ}
-	rsync -av ${LPROCESSED}${PROJ}/results_pipeline/ ${REMOTE}:${PROCESSED}${PROJ}/results_pipeline/ 
+	rsync -av ${PROCESSED}${PROJ}/results_pipeline/ ${REMOTE}:${REMOTE_PROCESSED}${PROJ}/results_pipeline/ 
 }
 
 # convert svg into pdf/png figures
 p.fig() {
-	${LCODE}/scripts/misc/svg2pdfpng ~/Dropbox/${PROJ}/Figures/SVG/*.svg
+	setproject
+	${CODE}/scripts/misc/svg2pdfpng ~/Dropbox/${PROJ}/Figures/SVG/*.svg
 }
 
 
 # publish web page to webserver
 p.web() {
-	rsync -av ${LCODE}/${PROJ}/web/. ${REMOTE}:/data/groups/lab_bock/public_html/papers/${PROJ}/
+	rsync -av ${CODE}/${PROJ}/web/. ${REMOTE}:/data/groups/lab_bock/public_html/papers/${PROJ}/
 }
 
 p.sfm () {
 	echo ${PROJ}
-	folders=`fe ${HOME}/code/${PROJ} ${HOME}/code/${PROJ}/src ${HOME}/code/${PROJ}/metadata  ${HOME}/code/${PROJ}/results_analysis /fsl/data/${PROJ} ${LPROCESSED}${PROJ}`
+	folders=`fe ${HOME}/code/${PROJ} ${HOME}/code/${PROJ}/src ${HOME}/code/${PROJ}/metadata  ${HOME}/code/${PROJ}/results_analysis /fsl/data/${PROJ} ${PROCESSED}${PROJ}`
 	echo ${folders}
 	spacefm -wn ${folders} & 
 }
+
+
+# data sync
+
+ds.data() {
+	rsync -av ${REMOTE}:${REMOTE_DATA} ${DATA}
+}
+
+ds.resources() {
+	rsync -av ${REMOTE}:${REMOTE_RESOURCES} ${RESOURCES}
+}
+
+
 
 # Load remote R sessions
 R.rcemm () {

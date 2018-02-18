@@ -2,7 +2,9 @@
 # Generic bash aliases
 
 # R should never ask me to save.
-alias R="$(/usr/bin/which R 2> /dev/null) --no-save"
+# This doesn't work if you don't already have R loaded when this script is run.
+# Better to do this from within .Rprofile.
+# alias R="$(/usr/bin/which R 2> /dev/null) --no-save"
 # Forward X sessions over ssh by default
 alias ssh="ssh -X"
 
@@ -21,6 +23,14 @@ busy () {
 
 cdp() {
   cd $PROCESSED/$1
+}
+
+recon() {
+nmcli c up id $1
+}
+
+pkgdowngen() {
+  R --quiet -e "pkgdown::build_site('${HOME}/code/$1', path='../code.databio.org/$1')"
 }
 
 # convert inkscape black to white.

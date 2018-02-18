@@ -22,7 +22,7 @@ def eprint(*args, **kwargs):
 #projects = ["ews_patients", "epigenome_compendium"]
 
 # Method 2: each subfolder in a provided directory is a project
-project_dir = os.path.expanduser(os.environ["LCODE"])
+project_dir = os.path.expanduser(os.environ["CODE"])
 subfolders = [item for item in os.walk(project_dir).next()[1]]
 projects = sorted(subfolders, key=str.lower)
 
