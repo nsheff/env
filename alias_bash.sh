@@ -52,6 +52,11 @@ done
 
 export -f fe
 
+psync () {
+  pass git push origin master
+  pass git pull origin master
+}
+
 # Combined cd and ls
 cs () {
         cd $1;

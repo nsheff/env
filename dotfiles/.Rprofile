@@ -1,37 +1,33 @@
-biocLoaded=FALSE
-if (FALSE) {
-	# Use this section if you need to specify an alternative bioconductor mirror
-	oldTimeout = options(timeout = 3) # lower timout
-	tryCatch( {
-		biocLoaded=TRUE
-	}, error = function(e) { 
-		message("Unable to connect to bioconductor mirror, using default." )
-	})
-	options(oldTimeout)
-}
-if (!biocLoaded) {
-	source("http://bioconductor.org/biocLite.R")
-}
-
 # Set global options
-options(menu.graphics=FALSE);
 options(echo=TRUE);
-options(stringsAsFactors=FALSE);
+options(menu.graphics=FALSE)
+options(stringsAsFactors=FALSE)
 
-# Set environment variable connection to shared functions
-options(RGENOMEUTILS="~/code/RGenomeUtils/")
+# Load projectInit (if installed)
+#tryCatch( {
+#    library(projectInit)
+#}, error = function(e) {
+#    message(e)
+#})
 
-# Load project.init (if installed)
-tryCatch( {
+# Start up bioconductor
+bc = function() {
+	source("https://bioconductor.org/biocLite.R")
+}
+
+# My function to initialize setup
+go = function() {
+	message("Initializing packages...")
+	
+	library(data.table, quietly=TRUE)
 	library(projectInit)
-}, error = function(e) {
-	message(e)
-})
+	library(simpleCache)
+	library(RGenomeUtils)
+	library(devtools)
+	library(ggplot2)
+}
 
-
-message("init packages...");
-library(devtools)
-library(data.table, quietly=TRUE)
-library(simpleCache)
-library(ggplot2)
-library(RGenomeUtils)
+# Install RGenomeUtils
+irgu = function() {
+	install.packages("/code/RGenomeUtils", repos=NULL)
+}
