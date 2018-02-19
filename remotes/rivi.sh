@@ -8,7 +8,7 @@ export REMOTE_DATA="/sfs/lustre/allocations/shefflab/data/"
 export REMOTE_PROCESSED="/sfs/lustre/allocations/shefflab/processed/"
 
 # Pointer to the common shared resources directory
-export REMOTE_RESOURCES="/h4/t1/resources/"
+export REMOTE_RESOURCES="/nm/t1/resources/"
 
 # Pointer to the collection of git repos
 export REMOTE_CODEBASE="/home/ns5bc/code/"
