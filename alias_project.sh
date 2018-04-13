@@ -174,6 +174,11 @@ ds.resources() {
 	rsync -av ${REMOTE}:${REMOTE_RESOURCES} ${RESOURCES}
 }
 
+ds.resourcesup() {
+	# Inverted to sync location changes to remote
+	rsync -av ${RESOURCES} ${REMOTE}:${REMOTE_RESOURCES} 
+}
+
 
 
 # Load remote R sessions
