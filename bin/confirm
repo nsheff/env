@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Quick command-line utility to confirm from the user before proceeding.
+# Usage example: 
+# confirm "Proceed?" && echo "yes" || echo "no"
+# confirm "Proceed?" || exit
+
+confirm() {
+    # call with a prompt string or use a default
+    read -r -p "${1:-Are you sure?} [y/N] " response
+    case "$response" in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+confirm "$@"

@@ -13,3 +13,4 @@ export REMOTE_RESOURCES="/mnt/q/shefflab/resources/"
 # Pointer to the collection of git repos
 export REMOTE_CODEBASE="/home/ns5bc/code/"
 
+export REMOTE_WEB="/mnt/q/shefflab/web/"
