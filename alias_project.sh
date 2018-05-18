@@ -3,6 +3,7 @@
 # you switch active projects, and then control syncing
 # that project among local and remote servers.
 
+# Converts markdown to txt format
 md2txt() {
 	pandoc -s `ls -1vr $1*` \
 	-t plain \
@@ -150,12 +151,6 @@ p.fig() {
 	${CODE}/scripts/misc/svg2pdfpng ~/Dropbox/${PROJ}/Figures/SVG/*.svg
 }
 
-
-# publish web page to webserver
-p.web() {
-	rsync -av ${CODE}/${PROJ}/web/. ${REMOTE}:/data/groups/lab_bock/public_html/papers/${PROJ}/
-}
-
 p.sfm () {
 	echo ${PROJ}
 	folders=`fe ${HOME}/code/${PROJ} ${HOME}/code/${PROJ}/src ${HOME}/code/${PROJ}/metadata  ${HOME}/code/${PROJ}/results_analysis /fsl/data/${PROJ} ${PROCESSED}${PROJ}`
@@ -164,19 +159,30 @@ p.sfm () {
 }
 
 
-# data sync
+# ------------------------------------------------------------------------------
+# Backup functions (remote push/pull functions)
 
-ds.data() {
-	rsync -av ${REMOTE}:${REMOTE_DATA} ${DATA}
+# Given a variable, like DATA, this will construct an rsync command to sync
+# the remote version to the local version
+# use like: `remotepull DATA`
+remotepull() {
+	if [ -e ${!1} ]
+	then
+	REMOTE_VAR="REMOTE_${1}"
+	cmd="rsync -av ${REMOTE}:${!REMOTE_VAR} ${!1}"
+	echo $cmd
+	`$cmd`
+	else
+	echo "${!1} does not exist."
+	fi
 }
 
-ds.resources() {
-	rsync -av ${REMOTE}:${REMOTE_RESOURCES} ${RESOURCES}
-}
 
-ds.resourcesup() {
-	# Inverted to sync location changes to remote
-	rsync -av ${RESOURCES} ${REMOTE}:${REMOTE_RESOURCES} 
+remotepush() {
+	REMOTE_VAR="REMOTE_${1}"
+	cmd="rsync -av ${!1} ${REMOTE}:${!REMOTE_VAR}"
+	echo $cmd
+	`cmd`
 }
 
 

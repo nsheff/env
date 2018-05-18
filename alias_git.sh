@@ -11,7 +11,7 @@ alias gst="git status"
 alias gcm="git commit -m"
 alias gpom="git push origin master"
 alias gpoh="git push origin HEAD"
-alias gprh="git push riv HEAD"  # push-to-deploy to rivanna
+
 
 alias gpa="git push --all"
 alias gpo="git push origin"
@@ -19,13 +19,8 @@ alias glop="git log --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%an|%Cgreen%d %
 alias gr='git remote -vv'
 alias gb='git branch -vv'
 
-gar()
-{
-	PWD=`pwd`
-	BN=`basename $PWD`
-	git remote add riv rivi:code/${BN}/.git
-}
 
+alias gprh="git push riv HEAD"  # push-to-deploy to rivanna
 # git clone alias
 # add --recursive so it will grab submodules as well by default.
 gclo() 
@@ -33,9 +28,12 @@ gclo()
 	git clone git@github.com:$1 --recursive
 }
 
+# Creates a new project from the databio/newproject template.
+# First, create the repository in the databio group. Then run this function
+# Run like: newproject projectname
 newproject() {
 	PROJ=$1
-	echo "Build project ${PROJ}"
+	echo "Creating a new repository for project ${PROJ}"
 	gclo databio/newproject
 	mv newproject ${PROJ}
 	cd ${PROJ}

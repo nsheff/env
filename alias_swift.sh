@@ -16,4 +16,4 @@ swf() {
 # swift upload
 swfu() {
   swf upload --segment-size 1073741824 "$@"
-}  
+}

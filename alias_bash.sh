@@ -7,15 +7,19 @@
 # alias R="$(/usr/bin/which R 2> /dev/null) --no-save"
 # Forward X sessions over ssh by default
 alias ssh="ssh -X"
-
 alias lsd="ls -d */"
 alias tf="tail --follow"
 alias ports="netstat -anltp | grep ssh"
-
 alias mytop='top -M -u $USER'
 
-# This alias will tell you how much of the CPU is currently
-# being used.
+
+# Set my umask so that by default, everything I do is group-writable
+umask 002
+
+
+# This alias will tell you how much of the CPU is currently being used. It's
+# useful for monitoring a server so you can be a good citizen and not
+# overconsume resources
 busy () {
   ncpu=`lscpu | grep "^CPU(s):" | awk '{print $2}'`
   top -bn 4 -d 0.5 | grep 'Cpu.s.' | tail -n 3 | gawk '{print $2+$4+$6}  (($2+$4+$6) * $ncpu of $ncpu)'
@@ -25,13 +29,6 @@ cdp() {
   cd $PROCESSED/$1
 }
 
-recon() {
-nmcli c up id $1
-}
-
-pkgdowngen() {
-  R --quiet -e "pkgdown::build_site('${HOME}/code/$1', path='../code.databio.org/$1')"
-}
 
 # convert inkscape black to white.
 function b2w {
@@ -53,27 +50,25 @@ for var in "$@"
 do
 if [ -e "$var" ]
 then
-	echo -n "$var "
+  echo -n "$var "
 else
-	echo " "
+  echo " "
 fi
 done
 }
 
 export -f fe
 
-psync () {
-  pass git push origin master
-  pass git pull origin master
-}
 
 # Combined cd and ls
 cs () {
-        cd $1;
-        ls -F --color=auto
+  cd $1;
+  ls -F --color=auto
 }
 
-umask 002
+
+# ------------------------------------------------------------------------------
+# Interacting with file management
 
 # Counts files in each subdirectory, by @Thor
 cf () {
@@ -105,6 +100,4 @@ diskrep () {
     gigs=$(($diskUse/1000000))
     echo "$1" ${gigs}G : ${fileCount}
   fi
-  
-
 }
