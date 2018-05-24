@@ -4,7 +4,7 @@
 
 export PROJECT_NAME='pathgentest2'
 curl -u 'nsheff' https://api.github.com/orgs/databio/repos -d "{\"name\":\"${PROJECT_NAME}\", \"private\": true}"
-gclo databio/newproject
+git clone databio/newproject
 mv newproject $PROJECT_NAME
 cd $PROJECT_NAME
 git init
