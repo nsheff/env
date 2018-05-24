@@ -33,6 +33,10 @@ gclo()
 # Run like: newproject projectname
 newproject() {
 	PROJ=$1
+	if [[ $# -eq 0 ]] ; then
+	    echo 'run like: newproject projectname'
+	    return 0
+	fi
 	echo "Creating a new repository for project ${PROJ}"
 	gclo databio/newproject
 	mv newproject ${PROJ}

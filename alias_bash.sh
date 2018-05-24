@@ -84,20 +84,3 @@ tu () {
 tar -czpf $1.tgz $1
 }
 
-# Untested attempt at a disk usage report.
-diskrep () {
-  diskUse=$(du -s "$1" | cut -f1)
-  #regex="(.*)"
-  #[[ $diskUse =~ $regex ]]
-#  gigUse="${BASH_REMATCH[1]}"
-  
-  # file count
-  fileCount=$(find "$1" -type f | wc -l)
-  # echo $1:  $diskUse : $fileCount
-  
-  if [ $diskUse -gt 1000000 ] || [ $fileCount -gt 50 ]
-    then
-    gigs=$(($diskUse/1000000))
-    echo "$1" ${gigs}G : ${fileCount}
-  fi
-}
