@@ -6,7 +6,7 @@
 # personal access token.
 
 if [[ $# -eq 0 ]] ; then
-    echo 'Give the version, e.g. 0.0.2, as the argument. "releasegh 0.0.2"'
+    echo 'From within the folder of the repo you want to release, give the version, e.g. 0.0.2, as the argument. "releasegh 0.0.2"'
     exit 0
 fi
 

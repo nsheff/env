@@ -171,7 +171,7 @@ remotepull() {
 	REMOTE_VAR="REMOTE_${1}"
 	cmd="rsync -av ${REMOTE}:${!REMOTE_VAR} ${!1}"
 	echo $cmd
-	`$cmd`
+	($cmd)
 	else
 	echo "${!1} does not exist."
 	fi
@@ -182,7 +182,7 @@ remotepush() {
 	REMOTE_VAR="REMOTE_${1}"
 	cmd="rsync -av ${!1} ${REMOTE}:${!REMOTE_VAR}"
 	echo $cmd
-	`cmd`
+	$(cmd)
 }
 
 
