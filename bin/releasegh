@@ -12,7 +12,7 @@ fi
 
 VERSION=$1
 
-REPO=`git remote get-url origin | sed 's/.*://g'`
+REPO=`git remote get-url origin | sed 's/.*://g' | sed 's/\.git//g'`
 echo "Release for repository: ${REPO}"
 
 # Grab the GH PAT
@@ -29,3 +29,6 @@ fi
 JSON=$(printf '{"tag_name": "v%s","target_commit": "master","name": "v%s","body": "Release version %s","draft": false,"prerelease": false}' $VERSION $VERSION $VERSION)
 URL="https://api.github.com/repos/${REPO}/releases?access_token=${GHPAT}"
 curl --data "$JSON" "$URL"
+
+echo "$JSON"
+echo "$URL"
