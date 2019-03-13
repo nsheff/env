@@ -3,11 +3,11 @@
 
 
 alias scount="squeue | awk '{print \$4 \"(\" \$5 \")\"}' | sort | uniq -c  | tr \"\n\" \"\t\" | sed 's/\([0-9][0-9]*\) /\1:/g' | sed 's/ //g' | fmt"
-alias myq='squeue -o " %.48j %.8i %.4P %.2t %.10M %.7m %z %c %.8R %.8n" -u `whoami` -S i; scount'
+alias myq='squeue -o " %.42j %.8i %.4P %.2t %.10M %.7m %z %c %.8R %.8n %.8a" -u `whoami` -S i; scount'
 
 
 subq() {
-	squeue -o " %.48j %.8i %.4P %.2t %.10M %.7m %z %c %.8R %.8n" -u $1 -S i;
+	squeue -o " %.42j %.8i %.4P %.2t %.10M %.7m %z %c %.8R %.8n %.8a" -u $1 -S i;
 }
 
 ourq() {
