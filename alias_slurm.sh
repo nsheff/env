@@ -24,7 +24,7 @@ ourq() {
 
 # Show historical jobs in recent history for a given user
 subhist() {
-	sacct --starttime `date +%Y-%m-%d -d "-3 month"` --units=G -u $1 -o "User,JobID,Jobname,partition,state,start,elapsed,MaxRss%6,ncpus%1,Account%6"
+	sacct --starttime `date +%Y-%m-%d -d "-3 month"` --units=G -u $1 -o "User,JobID,Jobname%30,partition,state,start,elapsed,MaxRss%6,ncpus%1,Account%6"
 }
 
 # Show my recent jobs
