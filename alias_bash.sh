@@ -87,3 +87,13 @@ tu () {
 tar -czpf $1.tgz $1
 }
 
+
+findin() {
+  # Finds any files in or below the cwd with $1 in the contents of the file
+  find . -type f -exec grep -il "$1" {} \;
+}
+
+findname() {
+  # Finds any files in or below the cwd with $1 in the filename
+  find . -name "*$1*"
+}
