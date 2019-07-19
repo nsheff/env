@@ -20,6 +20,14 @@ piuu() {
   pip install --user --upgrade $1
 }
 
+piuu2() {
+  pip2 install --user --upgrade $1
+}
+
+piuu3() {
+  pip3 install --user --upgrade $1
+}
+
 # This alias will tell you how much of the CPU is currently being used. It's
 # useful for monitoring a server so you can be a good citizen and not
 # overconsume resources
