@@ -2,6 +2,8 @@
 # repo in those folders and add any "/bin" folders to your path.
 
 # Here, specify any folders which contain a bunch of subfolders that are repos:
+echo "Setting bins"
+exit
 repo_folder=`ls -d ~/repo/*/ 2>/dev/null`
 rpack_folder=`ls -d ~/code/*/ 2>/dev/null`
 
