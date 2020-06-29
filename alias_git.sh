@@ -2,7 +2,6 @@
 # To use these, just source this file in your .bashrc
 
 alias gco="git checkout master"
-alias gpr="git pull origin HEAD --rebase"
 alias gdn="git diff HEAD --name-only; git ls-files --others --exclude-standard"
 alias gd="git diff HEAD"
 alias ga="git add"
@@ -23,10 +22,19 @@ alias gb='git branch -vv'
 alias gprh="git push riv HEAD"  # push-to-deploy to rivanna
 # git clone alias
 # add --recursive so it will grab submodules as well by default.
-gclo() 
-{
+gclo() {
 	git clone git@github.com:$1 --recursive
 }
+
+gpu() {
+git pull origin $(git rev-parse --abbrev-ref HEAD)
+}
+
+gpur() {
+git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase
+}
+
+
 
 # Creates a new project from the databio/newproject template.
 # First, create the repository in the databio group. Then run this function

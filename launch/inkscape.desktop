@@ -4,5 +4,5 @@ Encoding=UTF-8
 Name=inkscape
 Icon=inkscape.svg
 Comment=Inkscape vector graphics software
-Exec=bulker run databio/nsheff inkscape
+Exec="bulker run databio/nsheff inkscape"
 Terminal=false
