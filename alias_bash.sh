@@ -36,6 +36,11 @@ piu3() {
   pip install --user $1
 }
 
+
+watchfast() {
+  watch -n 0.25 ls -la --time-style=full-iso
+}
+
 # This alias will tell you how much of the CPU is currently being used. It's
 # useful for monitoring a server so you can be a good citizen and not
 # overconsume resources
