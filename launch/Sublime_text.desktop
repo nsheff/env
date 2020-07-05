@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Sublime_text
+Comment=Sublime text editor
+Icon=sublime.svg
+Exec=/home/nsheff/apps/sublime_text
+Terminal=false
