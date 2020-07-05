@@ -83,7 +83,7 @@ Add launchers to menu so they can be dragged to quicklaunch panel:
 Add pointer to env Makefile
 
 	echo 'include ~/Dropbox/env/Makefile' >> Makefile
-
+	
 Link in inkscape short keys
 
 	ln -s -i ~/code/env/dotfiles/inkscape_keys.xml .config/inkscape/keys/default.xml
