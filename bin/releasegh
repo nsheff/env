@@ -27,8 +27,15 @@ fi
 
 # Credit to a blog I can't remember for this code
 JSON=$(printf '{"tag_name": "v%s","target_commit": "master","name": "v%s","body": "Release version %s","draft": false,"prerelease": false}' $VERSION $VERSION $VERSION)
+
+# Access with PAT in URL deprecated in 2020
+# https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/
+#URL="https://api.github.com/repos/${REPO}/releases?access_token=${GHPAT}"
+#curl --data "$JSON" "$URL"
+
 URL="https://api.github.com/repos/${REPO}/releases?access_token=${GHPAT}"
-curl --data "$JSON" "$URL"
+curl -H "Authorization: token ${GHPAT}" --data  "$JSON" "$URL"
+
 
 echo "$JSON"
 echo "$URL"

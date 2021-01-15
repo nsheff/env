@@ -4,5 +4,5 @@ Encoding=UTF-8
 Name=Sublime_text
 Comment=Sublime text editor
 Icon=sublime.svg
-Exec=bulker run databio/nsheff subl
+Exec=/home/nsheff/apps/sublime_text
 Terminal=false

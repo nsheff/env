@@ -52,6 +52,24 @@ Start from here if you already have git set up how you want it
 	# Set up environment variables by pasting template `bash_vars_template.sh` # into your `.bashrc` Then adjust variables for this system.
 	cat ~/code/env/bash_vars_template.sh >> .bashrc
 
+## Basic utilities
+
+Most of the stuff now can be solved by bulker. But there are a few things I want to install natively.
+
+Install a sane file manager:
+
+```
+sudo apt-get install spacefm
+```
+
+sudo install python3-pip
+pip install bulker
+bulker load databio/nsheff
+export PATH=~/.local/bin:$PATH
+
+
+Install docker. You have to follow the current docker instructions because the way they suggest you install it changes every few months.
+
 ## Establish some links
 
 Link tomboy notes:
@@ -60,12 +78,12 @@ Link .Rprofile:
 	ln -s -i ${CODEBASE}env/dotfiles/.Rprofile $HOME/.Rprofile
 
 	ln -s -i ~/Dropbox/.tomboy ~/.local/share/tomboy
-	ln -s -i ~/Dropbox/env/sshconfig .ssh/config
+	ln -s -i $SYNCDIR/env/sshconfig .ssh/config
 
 Link atom theme:
 
 	ln -s -i ~/code/env/ns-atom-syntax/ ~/.atom/packages/ns-syntax
-	ln -s -i ~/Dropbox/env/default.xml ~/.config/inkscape/keys/default.xml
+	ln -s -i $SYNCDIR/env/default.xml ~/.config/inkscape/keys/default.xml
 
 Link workrave stats:
 
@@ -83,13 +101,13 @@ Add launchers to menu so they can be dragged to quicklaunch panel:
 Add pointer to env Makefile
 
 	echo 'include ~/Dropbox/env/Makefile' >> Makefile
-
+	
 Link in inkscape short keys
 
 	ln -s -i ~/code/env/dotfiles/inkscape_keys.xml .config/inkscape/keys/default.xml
 
 ## Some manual installs:
-* [Docker](https://docs.docker.com/installation/ubuntulinux/#installation)
+* [Docker](https://docs.docker.com/ee/docker-ee/ubuntu/)
 * [Skype]()
 * [Virtualbox]() ?
 
