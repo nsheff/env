@@ -1,14 +1,14 @@
 # Set global options
-options(echo=TRUE);
+#options(echo=TRUE)
 options(menu.graphics=FALSE)
 options(stringsAsFactors=FALSE)
 
 # Load projectInit (if installed)
-#tryCatch( {
-#    library(projectInit)
-#}, error = function(e) {
-#    message(e)
-#})
+tryCatch( {
+    library(projectInit)
+}, error = function(e) {
+    message(e)
+})
 
 # Start up bioconductor
 bc = function() {

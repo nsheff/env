@@ -3,6 +3,10 @@
 
 # ${BASH_SOURCE%/*} makes these paths relative to this script.
 # source ${BASH_SOURCE%/*}/repo_paths.sh
+
+HISTSIZE=10000
+HISTFILESIZE=20000
+
 export PATH=$PATH:${BASH_SOURCE%/*}/bin
 
 source ${BASH_SOURCE%/*}/alias_git.sh
