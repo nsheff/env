@@ -72,26 +72,13 @@ Install docker. You have to follow the current docker instructions because the w
 
 ## Establish some links
 
-Link tomboy notes:
 Link .Rprofile:
 
 	ln -s -i ${CODEBASE}env/dotfiles/.Rprofile $HOME/.Rprofile
 
-	ln -s -i ~/Dropbox/.tomboy ~/.local/share/tomboy
-	ln -s -i $SYNCDIR/env/sshconfig .ssh/config
-
-Link atom theme:
-
-	ln -s -i ~/code/env/ns-atom-syntax/ ~/.atom/packages/ns-syntax
-	ln -s -i $SYNCDIR/env/default.xml ~/.config/inkscape/keys/default.xml
-
 Link workrave stats:
 
 	ln -s -i ~/Dropbox/env/historystats ~/.workrave/historystats
-
-Link gedit preferences
-
-	ln -s -i ~/Dropbox/env/.rgedit-preferences ~/.rgedit-preferences
 
 Add launchers to menu so they can be dragged to quicklaunch panel:
 
