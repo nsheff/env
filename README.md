@@ -62,7 +62,7 @@ Install a sane file manager:
 sudo apt-get install spacefm
 ```
 
-sudo install python3-pip
+sudo apt install python3-pip
 pip install bulker
 bulker load databio/nsheff
 export PATH=~/.local/bin:$PATH
@@ -79,6 +79,8 @@ Link .Rprofile:
 Link workrave stats:
 
 	ln -s -i ~/Dropbox/env/historystats ~/.workrave/historystats
+	
+	ln -s -i ~/Dropbox/env/sshconfig ~/.ssh/config
 
 Add launchers to menu so they can be dragged to quicklaunch panel:
 
@@ -91,7 +93,8 @@ Add pointer to env Makefile
 	
 Link in inkscape short keys
 
-	ln -s -i ~/code/env/dotfiles/inkscape_keys.xml .config/inkscape/keys/default.xml
+	mkdir -p ~/.config/inkscape/keys
+	ln -s -i ~/code/env/dotfiles/inkscape_keys.xml ~/.config/inkscape/keys/default.xml
 
 ## Some manual installs:
 * [Docker](https://docs.docker.com/ee/docker-ee/ubuntu/)
