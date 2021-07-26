@@ -36,6 +36,17 @@ piu3() {
   pip install --user $1
 }
 
+# Shortcut/alias for bulker activate
+ba() {
+  history -a
+  if [ $# -eq 0 ]; then
+    echo "Initializing bulker crate: databio/lab"
+    bulker activate databio/lab
+  else
+  bulker activate $@
+  fi
+  history -r
+}
 
 
 watchfast() {
