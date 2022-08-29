@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=notable
+Comment=Notable markdown note editor
+Icon=notable.svg
+Exec=bulker run databio/nsheff notable
+Terminal=false

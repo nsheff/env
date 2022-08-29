@@ -2,10 +2,10 @@
 export REMOTE="rivi"
 
 # Pointer to the 'raw data' filesystem
-export REMOTE_DATA="/sfs/lustre/allocations/shefflab/data/"
+export REMOTE_DATA="/project/shefflab/data/"
 
 # Pointer to the 'processed data' filesystem
-export REMOTE_PROCESSED="/sfs/lustre/allocations/shefflab/processed/"
+export REMOTE_PROCESSED="/project/shefflab/processed/"
 
 # Pointer to the common shared resources directory
 export REMOTE_RESOURCES="/nm/t1/resources/"
