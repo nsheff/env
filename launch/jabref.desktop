@@ -2,5 +2,5 @@
 [Desktop Entry]
 Name=jabref
 Exec="/home/nsheff/code/env/bin/jabref.sh"
-Icon=/home/nsheff/Dropbox/science_media/logo/JabRef_Icon.svg
+Icon=/home/nsheff/code/figvault/logo/JabRef_Icon.svg
 Type=Application
