@@ -29,7 +29,7 @@ code_folder=`ls -d ~/code/*/`
 
 #declare -a repo_individual=("~/Rncs/dipPeak" "~/Rncs/IRangeKernels" "~/Rncs/CWriteR" "~/Rncs/LOLA" "~/Rncs/simpleCache" "~/Rncs/RHIS") 
 #Combine the two:
-repos=($repo_folder ${repo_individual[@]} $rpack_folder $code_folder)
+repos=($code_folder)
 
 # Loop through all repos and check for changes:
 for f in "${repos[@]}"
@@ -38,15 +38,20 @@ f=$(eval echo "$f") #expand
 cd "$f"
 if [ ! -d ".git" ];
 then
+bad=$((bad + 1))
 echo -e "${red}`pwd`${NC}"
 echo "Not a git repo."
 continue
 else
-echo -e "${ICyan}`pwd`${NC}"
 gitDiff=`gdn`
+
 if [ -n "$gitDiff" ]; then
+echo -e "${ICyan}`pwd`${NC}"
 echo "   Uncommitted changes:"
 echo -e "${IYellow}$gitDiff${NC}"
+bad=$((bad + 1))
+else
+good=$((good + 1))
 fi
 
 # This will check for changes at the remote:
@@ -56,10 +61,12 @@ fi
 
 outgoingCommits=`git log @{u}.. --oneline`
 incomingCommits=`git log ..@{u}  --oneline`
+
 if [ -n "$outgoingCommits" ]; then
 echo "   Outgoing commits:"
 echo -e "${IGreen}$outgoingCommits${NC}"
 fi
+
 if [ -n "$incomingCommits" ]; then
 echo "   Incoming commits:"
 echo -e "${IRed}$incomingCommits${NC}"
@@ -69,5 +76,7 @@ fi
 
 fi
 
+
 done
 
+echo -e "${IGreen}Pass:${NC} $good | ${IRed}Fail:${NC} $bad"

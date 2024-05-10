@@ -1,0 +1,6 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=postman
+Exec="/home/nsheff/apps/Postman/Postman"
+Icon=/home/nsheff/apps/Postman/app/icons/icon_128x128.png
+Type=Application
