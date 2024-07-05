@@ -1,6 +1,6 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=jabref
-Exec="/home/nsheff/code/env/bin/jabref.sh"
+Exec="/home/nsheff/apps/JabRef-5.9-portable_linux/JabRef/bin/JabRef"
 Icon=/home/nsheff/code/figvault/logo/JabRef_Icon.svg
 Type=Application
