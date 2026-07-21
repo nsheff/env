@@ -1,13 +1,20 @@
+#!/bin/bash
 # www.npcglib.org/~stathis/blog/2012/01/23/extracting-pages-from-a-pdf-with-ghostscript-gs/
 
 usage() {
-        echo "$0 {first page} {last page} {input pdf file} {output pdf file}"
+        echo "$0 {first page} {last page or '.'} {input pdf file} {output pdf file}"
+        echo "Use '.' as last page to extract until end of document"
+}
+
+get_page_count() {
+  # Get total pages using pdfinfo (more reliable than gs)
+  pdfinfo "$1" 2>/dev/null | grep -i "^Pages:" | awk '{print $2}'
 }
 
 extract() {
   gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER \
      -dFirstPage=$1 -dLastPage=$2 \
-     -sOutputFile=$4 $3
+     -sOutputFile="$4" "$3"
 }
 
 
@@ -19,5 +26,20 @@ then
   usage
   exit $E_BADARGS
 else
-  extract $1 $2 $3 $4
+  FIRST=$1
+  LAST=$2
+  INPUT="$3"
+  OUTPUT="$4"
+
+  # Handle '.' as "until end"
+  if [ "$LAST" = "." ]; then
+    LAST=$(get_page_count "$INPUT")
+    if [ -z "$LAST" ]; then
+      echo "Error: Could not determine page count for $INPUT"
+      exit 1
+    fi
+    echo "Extracting pages $FIRST to $LAST (end of document)"
+  fi
+
+  extract $FIRST $LAST "$INPUT" "$OUTPUT"
 fi
